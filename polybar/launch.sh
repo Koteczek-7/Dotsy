@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-# Terminate already running bar instances
-killall -q polybar
+name=example
+kill polybar
+if type "xrandr"; then
+  for monitor in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    MONITOR=${monitor} polybar --reload ${name}&
+  done
+else
+  polybar --reload ${name} &
+fi
 
-# Wait until the processes have been shut down
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-# Launch Polybar
-polybar top -c ~/.config/polybar/config &
-#if use bspwm config.ini
