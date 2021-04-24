@@ -225,7 +225,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+#bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -354,7 +354,7 @@ exec --no-startup-id nm-applet
 
 # set wallpaper
 #exec --no-startup-id nitrogen --restore
-exec --no-startup-id feh --bg-fill /home/koteczek/wallpapers/1.jpg
+exec --no-startup-id feh --bg-fill /home/koteczek/Walls/1.jpg
 
 #set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -427,11 +427,19 @@ no_focus [class="plasmashell" window_type="notification"]
 exec_always --no-startup-id sleep 1 && /home/koteczek/.config/polybar/launch.sh	
 
 # bluetooth
-exec_always --no-startup-id sleep 1 && /home/koteczek/.config/runbl.sh
+exec_always --no-startup-id sleep 1 && /home/koteczek/.config/runbluetooth.sh
   
 ## binding for rofi run menu
 
 bindsym $mod+d exec "rofi -show run"
 
+## binding for ranger
+bindsym $mod+r exec alacritty -e "ranger"
+
 ##screensaver
 
+exec_always --no-startup-id sleep 1 && /home/koteczek/.config/screensaver.sh
+
+## bind for vim/emacs run
+
+bindsym $mod+v exec "emacs"
