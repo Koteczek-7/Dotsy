@@ -1,0 +1,16 @@
+" Plugins will be downloaded under the specified directory.
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+
+" Declare the list of plugins.
+Plug 'tpope/vim-sensible'
+Plug 'junegunn/seoul256.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'frazrepo/vim-rainbow'
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
+
+au FileType c,cpp,objc,objcpp call rainbow#load()
+
+let g:lightline = {
+	\ 'colorscheme': 'wombat',
+	\ }
