@@ -278,7 +278,7 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 ## App shortcuts
 bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+n exec /usr/bin/thunar
-bindsym Print exec "scrot ~/%Y-%m-%d-%T-screenshot.png"
+bindsym Print exec flameshot gui
 
 ##########################################
 # configuration for workspace behaviour: #
@@ -354,7 +354,7 @@ exec --no-startup-id nm-applet
 
 # set wallpaper
 #exec --no-startup-id nitrogen --restore
-exec --no-startup-id feh --bg-fill /home/koteczek/Walls/1.jpg
+exec --no-startup-id feh --bg-fill /home/koteczek/Walls/13.png
 
 #set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -429,7 +429,7 @@ exec_always --no-startup-id sleep 1 && /home/koteczek/.config/polybar/launch.sh
 # bluetooth
 exec_always --no-startup-id sleep 1 && /home/koteczek/.config/runbluetooth.sh
   
-## binding for rofi run menu
+## binding for rofi alacritty -e "vim"
 
 bindsym $mod+d exec "rofi -show run"
 
@@ -442,4 +442,4 @@ exec_always --no-startup-id sleep 1 && /home/koteczek/.config/screensaver.sh
 
 ## bind for vim/emacs run
 
-bindsym $mod+v exec "emacs"
+bindsym $mod+v exec xfce4-terminal -e "vim"
