@@ -19,5 +19,8 @@ call plug#end()
 au FileType c,cpp,objc,objcpp call rainbow#load()
 
 let g:airline_theme= 'owo'
+"let g:lightline = {
+"	\ 'colorscheme': 'wombat',
+"	\ }
 set clipboard=unnamed
 set laststatus=2
