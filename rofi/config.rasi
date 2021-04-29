@@ -1,12 +1,53 @@
+/**
+ * ROFI Color theme
+ * NAME: dt-dmenu.rasi
+ * DESCRIPTION: This is a horizontal prompt similar to dmenu.
+ * AUTHOR: Derek Taylor (DT)
+ */
 
-/* Theme EndeavourOS i3
-https://raw.githubusercontent.com/endeavouros-team/i3-EndeavourOS/master/.config/rofi/config.rasi
-Maintainer: joekamprad [joekamprad@endeavouros.com]
-https://endeavouros.com
-*/
-configuration {
-    color-normal: "argb:00383c4a, #b0b5bd, argb:00383c4a, argb:E6101010, #ff7f7f";
-	color-urgent: "argb:00383c4a, #b0b5bd, argb:00383c4a, argb:00383c4a, #24ffef";
-	color-active: "argb:00383c4a, #b0b5bd, argb:00383c4a, argb:00383c4a, #24ffef";
-	color-window: "argb:E6383c4a, argb:00383c4a, argb:E65294e2";
+* {
+    background-color:           #282c34;
+    border-color:               #282c34;
+    text-color:                 #bbc2cf;
+    height:                     20px;
+    font:                       "SauceCodePro Nerd Font Mono 9";
+    prompt-font:                "Ubuntu Bold 9";
+    prompt-background:          #51afef;
+    prompt-foreground:          #282c34;
+    prompt-padding:             2px;
+    selected-normal-background: #ae3f3e;
+    selected-normal-foreground: #ffffff;
+}
+#window {
+    anchor: north;
+    location: north;
+    width: 100%;
+    padding: 0px;
+    children: [ horibox ];
+}
+#horibox {
+    orientation: horizontal;
+    children: [ prompt, entry, listview ];
+}
+#prompt {
+    padding:          @prompt-padding;
+    background-color: @prompt-background;
+    text-color:       @prompt-foreground;
+    font:             @prompt-font;
+}
+#listview {
+    layout: horizontal;
+    lines: 100;
+}
+#entry {
+    padding: 2px;
+    expand: false;
+    width: 10em;
+}
+#element {
+    padding: 2px 8px;
+}
+#element selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
 }
