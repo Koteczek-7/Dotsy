@@ -45,7 +45,7 @@ workspace_layout default
 ##############################
 
 #border indicator on windows: 
-new_window pixel 1
+new_window pixel 4
 
 # thin borders
 # hide_edge_borders both
@@ -354,7 +354,7 @@ exec --no-startup-id nm-applet
 
 # set wallpaper
 #exec --no-startup-id nitrogen --restore
-exec --no-startup-id feh --bg-fill /home/koteczek/Walls/14.png
+exec --no-startup-id feh --bg-fill /home/koteczek/Walls/32.png
 
 #set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -401,8 +401,8 @@ set $yellowbrown	#e1b700
 
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
-client.focused		    $lightblue	$darkblue	$white		$purple		$mediumgrey
-client.unfocused	    $darkblue	$darkblue	$grey		$purple		$darkgrey
+client.focused		    $06d6a0	$darkblue	$white		$purple		#c77dff
+client.unfocused	    $darkblue	$darkblue	$lightblue	$purple		#5e60ce
 client.focused_inactive	$darkblue	$darkblue	$grey		$purple		$black
 client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
 
@@ -442,3 +442,6 @@ exec_always --no-startup-id sleep 1 && /home/koteczek/.config/screensaver.sh
 
 ## bind for vim/emacs run
 bindsym $mod+v exec emacs
+
+## windows borders
+for_window [class=".*"] border pixel 3
