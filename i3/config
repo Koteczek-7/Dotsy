@@ -15,7 +15,8 @@
 #######################
 # config starts here: #
 #######################
-
+#default terminal
+set $term alacritty
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -52,7 +53,7 @@ new_window pixel 4
 
 # Set inner/outer gaps
 gaps inner 4
-gaps outer 2
+gaps outer 4
 
 
 
@@ -351,10 +352,11 @@ exec --no-startup-id picom --experimental-backend
 
 #networkmanager-applet
 exec --no-startup-id nm-applet
-
+#timezone
+exec --no-startup-id ln -s /user/share/zoneinfo/Europe/Warsaw
 # set wallpaper
 #exec --no-startup-id nitrogen --restore
-exec --no-startup-id feh --bg-fill /home/koteczek/Walls/32.png
+exec --no-startup-id feh --bg-fill /home/koteczek/Walls/50.png
 
 #set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -401,27 +403,10 @@ set $yellowbrown	#e1b700
 
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
-client.focused		    $06d6a0	$darkblue	$white		$purple		#c77dff
-client.unfocused	    $darkblue	$darkblue	$lightblue	$purple		#5e60ce
-client.focused_inactive	$darkblue	$darkblue	$grey		$purple		$black
-client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
-
-## configs for plasma + i3
-
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
-for_window [class="plasmashell"] floating enable;
-for_window [class="plasmashell" window_type="notification"] floating enable, border none, move position 1450px 20px
-for_window [class="Plasma"] floating enable; border none
-for_window [title="plasma-desktop"] floating enable; border none
-for_window [title="win7"] floating enable; border none
-for_window [class="krunner"] floating enable; border none
-for_window [class="Kmix"] floating enable; border none
-for_window [class="Klipper"] floating enable; border none
-for_window [class="Plasmoidviewer"] floating enable; border none
-for_window [class="(?i)*nextcloud*"] floating disable
-for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
-no_focus [class="plasmashell" window_type="notification"] 
-
+client.focused		    $06d6a0	$darkblue	$white		#00f5d4		#00f5d4
+#client.unfocused	    $darkblue	$darkblue	$lightblue	#2a9d8f		#2a9d8f
+#client.focused_inactive	$darkblue	$darkblue	$grey		#3f37c9		#3f37c9
+#client.urgent		    $urgentred	$urgentred	$white		#4895ef		#4895ef
 ## polybar config
 
 exec_always --no-startup-id sleep 1 && /home/koteczek/.config/polybar/launch.sh	
@@ -441,7 +426,9 @@ bindsym $mod+r exec kitty -e "ranger"
 exec_always --no-startup-id sleep 1 && /home/koteczek/.config/screensaver.sh
 
 ## bind for vim/emacs run
-bindsym $mod+v exec emacs
+bindsym $mod+v exec kitty -e "vim"
+
+bindsym $mod+m exec alacritty -e "spotifyd" && exec alacritty -e "spt"
 
 ## windows borders
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 2
