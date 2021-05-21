@@ -30,17 +30,20 @@ set $mod Mod4
 # workspace layout: #
 #####################
 
-# default i3 tiling mode:
-workspace_layout default
+set $i3l spiral 0.6 to workspace $ws1
+set $i3l spiral 0.6 to workspace $ws2
+set $i3l spiral 0.6 to workspace $ws3
+set $i3l spiral 0.6 to workspace $ws4
+set $i3l spiral 0.6 to workspace $ws5
+set $i3l spiral 0.6 to workspace $ws6
+set $i3l spiral 0.6 to workspace $ws7
+set $i3l spiral 0.6 to workspace $ws8
 
-# i3 stacking layout:
-# Each window will be fullscreen and tabbed top to bottom.
-#workspace_layout stacking
-
-# i3 tabbed layout:
-# Each new window will open fullscreen as a tab (left to right)
-#workspace_layout tabbed
-
+bindsym $mod+Ctrl+1 i3l vstack 0.6
+bindsym $mod+Ctrl+2 i3l hstack 0.6
+bindsym $mod+Ctrl+3 i3l spiral 0.6
+bindsym $mod+Ctrl+4 i3l autosplit 0.6
+bindsym $mod+Ctrl+5 exec i3l companion 0.6
 ##############################
 # extra options for windows: #
 ##############################
@@ -54,7 +57,7 @@ new_window pixel 4
 # Set inner/outer gaps
 gaps inner 4
 gaps outer 4
-
+gaps top 27
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -355,11 +358,8 @@ exec --no-startup-id nm-applet
 #timezone
 exec --no-startup-id ln -s /user/share/zoneinfo/Europe/Warsaw
 # set wallpaper
-#exec --no-startup-id nitrogen --restore
-exec --no-startup-id feh --bg-fill /home/koteczek/Walls/50.png
-
-#set powersavings for display:
-exec --no-startup-id xset s 480 dpms 600 600 600
+exec --no-startup-id nitrogen --restore
+#exec --no-startup-id feh --bg-fill /home/koteczek/Walls/34.png
 
 # Desktop notifications
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
@@ -404,7 +404,7 @@ set $yellowbrown	#e1b700
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
 client.focused		    $06d6a0	$darkblue	$white		#00f5d4		#00f5d4
-#client.unfocused	    $darkblue	$darkblue	$lightblue	#2a9d8f		#2a9d8f
+#client.unfocused	    $darkblue	$darkblue	$lightblue	#2a9d8f		#xx2a9d8f
 #client.focused_inactive	$darkblue	$darkblue	$grey		#3f37c9		#3f37c9
 #client.urgent		    $urgentred	$urgentred	$white		#4895ef		#4895ef
 ## polybar config
@@ -430,5 +430,5 @@ bindsym $mod+v exec kitty -e "vim"
 
 bindsym $mod+m exec alacritty -e "spotifyd" && exec alacritty -e "spt"
 
-## windows borders
-for_window [class=".*"] border pixel 2
+## windows layout
+exec --no-startup-id exec i3-layouts
