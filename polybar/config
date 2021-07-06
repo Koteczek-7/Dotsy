@@ -39,14 +39,15 @@ override-redirect = true
 bottom = false
 fixed-center = false
 width = 100%
-height = 18
-offset-x = 0
-offset-y = 0
-
+height = 22
+offset-x = 
+offset-y = 
+padding-left = 
+padding-right = 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-radius = 2
+radius = 0
 line-size = 2
 line-color = #000000
 
@@ -64,18 +65,18 @@ font-5 = "Monofur:size=15;3"
 
 modules-left = i3 
 modules-center = 
-modules-right = pulseaudio date powermenu
+modules-right = filesystem begin cpu2 begin memory2 begin pulseaudio begin date begin
 
 separator =
 
 tray-position = right
 tray-detached = false
-tray-maxsize = 30
+tray-maxsize = 16
 tray-background = ${colors.background}
 tray-offset-x = 0
 tray-offset-y = 0
 tray-padding = 5
-tray-scale = 1.0
+tray-scale = 1
 
 enable-ipc = true
 
@@ -109,26 +110,27 @@ ws-icon-6 = 7;7
 ws-icon-7 = 8;8
 ws-icon-8 = 9;9
 ws-icon-9 = 10;10
-ws-icon-default = ""
+ws-icon-default = " "
 
 
 format = <label-state> <label-mode>
 
 label-focused = %icon%
-label-focused-background= #6790eb
+label-focused-background= ${colors.background}
 label-focused-padding = 1
-label-focused-foreground = ${colors.foreground}
+label-focused-foreground = #bf676a 
+
 
 label-occupied = %icon%
 label-occupied-padding = 1
-label-occupied-background = #aa6790e0
+label-occupied-foreground = #aa6790e0
 
 
 label-urgent = %icon%
 label-urgent-padding = 1
 
 label-empty = %icon%
-label-empty-foreground = ${colors.foreground}
+label-empty-foreground = #dee2ec
 label-empty-padding = 1
 label-empty-background = ${colors.background}
     #label-monocle = "  "
@@ -153,19 +155,10 @@ format-background = ${colors.background}
 [module/begin]
 ; grey to Blue
 type = custom/text
-content = "%{T2}[%{T-}"
+content = "%{T2}  %{T-}"
 content-font = 2
-content-foreground = #aa
-content-background = #282c34
-
-[module/end]
-; grey to Blue
-type = custom/text
-content = "%{T2}]%{T-}"
-content-font = 1
-content-foreground = #aa
-content-background = #282c34
-
+content-foreground = #495057
+content-background = #aa
 
 [module/wlan]
 type = internal/network
@@ -188,7 +181,7 @@ type = internal/fs
 interval = 25
 mount-0 = /
 format-mounted-padding = 
-label-mounted = %{F#ebcb8b}[%{F#ebcb8b}%mountpoint%%{F#ebcb8b}: %percentage_used%%%{F#ebcb8b}]
+label-mounted = %{F#ebcb8b}%{F#ebcb8b}%mountpoint%%{F#ebcb8b}: %percentage_used%%%{F#ebcb8b}
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 format-mounted-foreground = #303541
@@ -210,34 +203,34 @@ type = internal/cpu
 interval = 1
 format-foreground = #88C0D0
 format-background = #282c34
-format-prefix = "[ "
+format-prefix = "  "
 format-prefix-foreground = #88C0D0
 format-underline = #282c34
 label-font = 1
 format = <label>
-label =  %percentage:3%%%{F#88C0D0}]
+label =  %percentage:3%%%{F#88C0D0}
 
 [module/date]
 type = internal/date
 interval = 5
-date = "%a %d/%m/%Y"
-date-alt = "%a %d-%m-%Y"
+date = 
+date-alt = " %a %d-%m-%Y"
 time =%l:%M%p
 time-alt = %l:%M%p
-format-prefix =  "["
+format-prefix =  ""
 format-prefix-foreground = #f2c6de
 format-foreground = #ffffff
 format-background = #282c34
-label = "%date%%time%]"
+label = "%date% %time%"
 format-underline = 
 
 [module/memory2]
 type = internal/memory
 interval = 1
-label = %mb_used%%{F#A3BE8C}]
+label = %mb_used%%{F#A3BE8C}
 
 format = <label>
-format-prefix = "[  "
+format-prefix = "  "
 format-prefix-foreground = #A3BE8C
 format-foreground = #A3BE8C
 format-background = #282c34
@@ -246,10 +239,11 @@ format-underline = #282c34
 [module/pulseaudio]
 type = internal/pulseaudio
 sink = alsa_output.pci-0000_00_1f.3.analog-stereo
-label-volume = "[  %percentage%%]"
+label-volume = "  %percentage%%"
 label-muted = "  Mute "
+click-left = exec pavucontrol
 format-volume-underline = #282c34
-format-volume-foreground = #fff
+format-volume-foreground = #f08080
 format-volume-background = #282c34
 format-muted-foreground = ${colors.color0}
 format-muted-background = ${colors.color4}

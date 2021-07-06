@@ -10,7 +10,7 @@
     background-color:           #282c34;
     border-color:               #282c34;
     text-color:                 #bbc2cf;
-    height:                     18px;
+    height:                     22px;
     font:                       "SauceCodePro Nerd Font Mono 9";
     prompt-font:                "Ubuntu Bold 9";
     prompt-background:          #51afef;
@@ -41,12 +41,12 @@
     lines: 100;
 }
 #entry {
-    padding: 2px;
+    padding: 4px;
     expand: false;
     width: 10em;
 }
 #element {
-    padding: 0px 9px;
+    padding: 3px 11px;
 }
 #element selected {
     background-color: @selected-normal-background;
